@@ -1,19 +1,41 @@
-const app = require('express')()
 const express = require('express')
+const mongoose = require('mongoose')
+const morgan = require('morgan')
 const dotenv = require('dotenv')
-
 const cors = require('cors')
+
+const app = express()
+
+
+dotenv.config()
+
+const middlewares = require('./middlewares')
+const logs = require('./api/logs')
+
+mongoose.connect(process.env.MONGO_URL,{
+  useNewUrlParser : true,
+  useUnifiedTopology : true,
+}).then(()=>{console.log("Database Connected !! ")})
+.catch((err)=>console.log("Databse Not Connected !!! "))
 
 
 app.use(cors())
-
-dotenv.config()
- 
-
-// const app =express()
+app.use(morgan('common'))
+app.use(express.json())
 
 
 const PORT = process.env.PORT || 5000
+
+app.get('/',(req,res)=>{
+  res.json({
+    message:'Home Page',
+  })
+})
+
+app.use('/api/logs',logs)
+
+app.use(middlewares.urlNotFound)
+app.use(middlewares.statusError)
 
 app.listen(
   PORT,
@@ -21,6 +43,5 @@ app.listen(
     `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`
   )
 )
-// app.listen(process.env.PORT || 5000, console.log(`Server Running on ${process.env.NODE_ENV} mode PORT ${process.env.PORT || 5000}`))
 
 
