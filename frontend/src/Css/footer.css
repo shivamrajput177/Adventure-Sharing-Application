@@ -1,0 +1,37 @@
+.blogfooter
+{
+    
+    position: fixed;
+    bottom: 0px;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(119, 76, 119);
+    color: darkgray;
+    padding-top: 16px;
+    height: 10vh;
+    width: 100%;
+}
+
+.footer-left
+{
+
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.footer-right
+{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-link
+{
+    margin-left: 2px;
+    text-decoration: none;
+    color: darkgray;
+}

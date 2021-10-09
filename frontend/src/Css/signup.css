@@ -1,0 +1,62 @@
+.signup{
+
+}
+
+.container{
+
+}
+.signup-content
+{
+ 
+ 
+}
+
+.signup-form
+{
+ 
+    background-color:rgb(248, 240, 240);
+    
+
+}
+
+#register-form
+{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+}
+.form-group
+{
+    display: flex;
+    margin-top: 10px;
+    flex-direction: row;
+    
+}
+
+.com{
+    margin-left: 20px;
+}
+
+.form-title
+{
+
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(126, 38, 185);
+}
+.form-button
+{
+    margin-left: 4vw;
+    margin-top:  2vw;
+    font-size: 20px;
+
+}
+
+.btn
+{
+    
+    font-size: 15px;
+    width: 80px;
+    outline: 0;
+}

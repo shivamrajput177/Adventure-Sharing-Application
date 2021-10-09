@@ -1,0 +1,35 @@
+
+.Right
+{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-top: 1vh;
+}
+.Left
+{
+    padding-top: 1vh;
+}
+.nav
+{
+ display: flex;
+ justify-content: space-between;
+ flex-direction: row;
+ background-color: rgb(230, 224, 224);
+ height: 10vh;
+ 
+ text-align: center;
+
+}
+.navlink
+{
+  
+  color: rgb(48, 46, 46);
+  padding: 2vh 1vw 1vh 2vw;
+  font-size:   20px;
+  text-decoration: none;
+}
+.travel
+{
+
+width: 100vw;
+height: 100vh;
+}

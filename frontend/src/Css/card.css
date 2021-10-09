@@ -1,0 +1,23 @@
+.card-heading
+{
+    background-color: rgb(112, 102, 102);
+    width: 300px;
+    height: 300px;
+    border-radius: solid 5px gray;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.card-subheading
+{
+
+    color: Brown;
+    display: flex;
+    justify-content:  space-between;
+    flex-direction: row;
+    
+}
+

@@ -1,12 +1,21 @@
 
-function App() {
+import Routing from "./routing/routing"
+
+import { Component } from "react";
+class App extends Component {
+  render(){
   return (
-    <div className="App">
-      <header className="App-header">
-        Hello
-      </header>
-    </div>
-  );
+
+  <div className="App">  
+    
+  <Routing/>
+  
+   </div>
+  )
+  }
 }
 
+
 export default App;
+
+
