@@ -46,7 +46,7 @@ const registerUser = asyncHandler(async (req, res) => {
   
   const getProfileByUser = asyncHandler(async (req, res) => {
     console.log(req.params.id)
-    const user = await User.findById(req.params.id)
+    const user = await User.findById(`${req.params.id}`)
   
     if (user) {
       res.json({
