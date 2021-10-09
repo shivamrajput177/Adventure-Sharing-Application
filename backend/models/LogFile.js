@@ -1,17 +1,13 @@
 const mongoose = require('mongoose')
 
-const {Schema} = mongoose
-
-const reqString = {
-    type:String,
-    required:true,
-}
-
-const logSchema = new Schema({
+const logSchema = new mongoose.Schema({
     username : {type: String, lowercase: true, required: [true, "can't be blank"], match: [/^[a-zA-Z0-9]+$/, 'is invalid'], index: true},
-    title : reqString,
+    title : {
+        type:String,
+        required:true,
+    },
     description : String,
-    image : String,
+    story : [String],
     latitude : {
         type : Number ,
         required : true,
