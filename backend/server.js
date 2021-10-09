@@ -10,7 +10,9 @@ const app = express()
 dotenv.config()
 
 const middlewares = require('./middlewares')
-const logs = require('./api/logs')
+
+const userRoutes = require('./routes/userRoutes')
+const logRoutes = require('./api/logs')
 
 mongoose.connect(process.env.MONGO_URL,{
   useNewUrlParser : true,
@@ -22,6 +24,7 @@ mongoose.connect(process.env.MONGO_URL,{
 app.use(cors())
 app.use(morgan('common'))
 app.use(express.json())
+app.use(express.urlencoded());
 
 
 const PORT = process.env.PORT || 5000
@@ -32,7 +35,9 @@ app.get('/',(req,res)=>{
   })
 })
 
-app.use('/api/logs',logs)
+// app.use('/api/products', productRoutes)
+app.use('/api/user', userRoutes)
+app.use('/api/logs', logRoutes)
 
 app.use(middlewares.urlNotFound)
 app.use(middlewares.statusError)
