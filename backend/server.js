@@ -12,7 +12,7 @@ dotenv.config()
 const middlewares = require('./middlewares')
 
 const userRoutes = require('./routes/userRoutes')
-const logRoutes = require('./routes/logRoutes')
+const logRoutes = require('./api/logs')
 
 mongoose.connect(process.env.MONGO_URL,{
   useNewUrlParser : true,
@@ -37,6 +37,7 @@ app.get('/',(req,res)=>{
 
 // app.use('/api/products', productRoutes)
 app.use('/api/user', userRoutes)
+app.use('/api/logs', logRoutes)
 
 app.use(middlewares.urlNotFound)
 app.use(middlewares.statusError)

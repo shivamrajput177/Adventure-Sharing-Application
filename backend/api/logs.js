@@ -1,5 +1,6 @@
 const {Router} = require('express')
 const LogFile = require('../models/LogFile')
+const User = require('../models/userModel')
 
 const router = Router()
 
@@ -16,7 +17,7 @@ router.get('/all',async (req, res,next) => {
 
 // My Posts which will be called upon click on user Profile
 
-router.get('/user-posts/:id' ,async (req, res,next) => {
+router.get('/posts/:id' ,async (req, res,next) => {
     try {
         console.log(req.params.id)
         const userId =  `${req.params.id}` 
@@ -24,6 +25,16 @@ router.get('/user-posts/:id' ,async (req, res,next) => {
         res.status(200).json(userLogs)
     } catch (error) {
         next(error)
+    }
+})
+
+router.get('/user-posts/:usr',async(req,res,next)=>{
+    try{
+        console.log(req.params.usr)
+        const usrlogs = await LogFile.find({'username' : `${req.params.usr}`})
+        res.status(200).json(usrlogs)
+    }catch(err){
+        next(err)
     }
 })
 
