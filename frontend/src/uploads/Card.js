@@ -73,6 +73,7 @@ class Card extends Component{
                    <h4>12:04-12:10</h4>
                   </div>
                   <p> {item.Review} It's really a nice place to study. </p>
+                  <p>6 minutes ago</p>
                   <img src={item.img_url} alt="loading" className="card-img"/>
                    </div>
           ))}
