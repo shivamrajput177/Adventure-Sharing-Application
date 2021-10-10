@@ -20,21 +20,15 @@
   },
   "homepage": "https://github.com/shivamrajput177/Adventure-Sharing-Application#readme",
   "dependencies": {
-<<<<<<< HEAD
     "axios": "^0.22.0",
-=======
     "@mui/icons-material": "^5.0.3",
     "bcryptjs": "^2.4.3",
->>>>>>> c52f9ccafd355e64710b1e0e5528554dfdea346c
     "concurrently": "^6.3.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-<<<<<<< HEAD
     "mdb-react-ui-kit": "^1.4.0",
-=======
     "express-async-handler": "^1.1.4",
->>>>>>> c52f9ccafd355e64710b1e0e5528554dfdea346c
     "mongoose": "^6.0.9",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.13",
