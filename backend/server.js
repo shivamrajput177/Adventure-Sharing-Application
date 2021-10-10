@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const morgan = require('morgan')
 const dotenv = require('dotenv')
 const cors = require('cors')
+const body=require('body-parser')
 
 const app = express()
 
@@ -34,6 +35,7 @@ app.get('/',(req,res)=>{
     message:'Home Page',
   })
 })
+
 
 // app.use('/api/products', productRoutes)
 app.use('/api/user', userRoutes)

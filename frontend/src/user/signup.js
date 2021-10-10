@@ -1,16 +1,58 @@
+import axios from 'axios'
 import { Component } from 'react'
 import Headers from  "../components/header"
 import Footer from   "../components/footer"
 import "./../Css/login.css"
 
-class Signup extends Component
+
+class  Signup extends Component
 {
 
-    render()
-    {
+
+state= {
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
+    cpassword: ""
+
+}
+
+//   componentDidMount()
+//   {
+
+//     console.log(this.state.name);
+//     axios.post("http://localhost:5000/api/user/register",{
+      
+//      name: this.state.name,
+//      email: this.state.email,
+//      phone: this.state.phone,
+//      password: this.state.password,
+//      cpasspword: this.state.cpassword
+//     })
+//     .then((response)=>
+//     {   
+//         if(response.status===200)
+//         {
+//         console.log(response);
+//         }
+//         else
+//         {
+//             console.log("Unsuccessfull");
+//         }
+
+
+//     })
+//     .catch((error)=>{
+//         console.log(error);
+//     })
+    
+//   }
+
+render(){
+    
     return(
-       
-        
+    
          <>
         <Headers/>
 
@@ -19,7 +61,7 @@ class Signup extends Component
                 <div className="signup-content">
                     <div className="signup-form">
                         <h2 className="form-title">Signup To Start The Joruney.</h2>
-                         <form className="register-form" id="register-form" action="/post" method="POST">
+                         <form className="register-form" id="register-form" action="http://localhost:5000/api/user/register" method="POST"  >
                              <div className="form-group">
 
                                  <div className="com">
@@ -30,7 +72,14 @@ class Signup extends Component
 
                                 <div className="com">
                                  <input type="text" name="name" id="name" autoComplete="off"
-                                 placeholder="Your Name"></input>
+                                 
+                                 
+                                 onChange={(event)=>{
+                                     this.setState({
+                                       name: event.target.value
+                                     })
+                                 }}
+                                 placeholder="Your UserName"></input>
                                 </div>
 
                               </div>
@@ -45,6 +94,12 @@ class Signup extends Component
 
                                 <div className="com">
                                  <input type="text" name="email" id="email" autoComplete="off"
+                                 
+                                 onChange={(event)=>{
+                                 this.setState({
+                                    email: event.target.value
+                                    })
+                                }}
                                  placeholder="Your Email"></input>
                                  </div>
 
@@ -59,7 +114,12 @@ class Signup extends Component
 
                                 <div className="com">
                                  <input type="number" name="phone" id="phone" autoComplete="off"
-                                 placeholder="Your Phone"></input>
+                                   onChange={(event)=>{
+                                    this.setState({
+                                      phone: event.target.value
+                                    })
+                                }}
+                                placeholder="Your Phone"></input>
                                 </div>
 
                                 </div>
@@ -74,7 +134,12 @@ class Signup extends Component
 
                                 <div className="com">
                                  <input type="password" name="password" id="password" autoComplete="off"
-                                 placeholder="Your Password"></input>
+                                 onChange={(event)=>{
+                                    this.setState({
+                                      password: event.target.value
+                                    })
+                                }}
+                                placeholder="Your Password"></input>
                                  </div>
 
                                 </div>
@@ -88,7 +153,12 @@ class Signup extends Component
 
                                  <div className="com">
                                  <input type="password" name="cpassword" id="passwird" autoComplete="off"
-                                 placeholder="Confirm Your Password"></input>
+                                 onChange={this.handleInput=(event)=>{
+                                    this.setState({
+                                      cpasspword: event.target.value
+                                    })
+                                }}
+                                placeholder="Confirm Your Password"></input>
                                  </div>
 
                                 </div>
@@ -96,7 +166,7 @@ class Signup extends Component
                             <div className="form-group form-button ">
                                 {/* <input type="submit" name="signup" id="signup" className="form-submit" 
                                 value="register"/> */}
-                                <button className="btn btn-outline-dark" name="collect" >Submit</button>
+                                <button className="btn btn-outline-dark" name="collect"value="login" >Submit</button>
                             </div>
                          
                          
@@ -115,5 +185,6 @@ class Signup extends Component
     }
     
 }
+
 
 export default Signup;

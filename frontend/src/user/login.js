@@ -1,15 +1,14 @@
-import { Component } from 'react'
+import axios from 'axios'
 
 import Headers from  "../components/header"
 import Footer from   "../components/footer"
 import   "./../Css/signup.css"
 
 
-class Login extends Component
+const Login=()=>
 {
  
-    render()
-    {
+    
   return(
    <>
    <Headers/>
@@ -18,20 +17,23 @@ class Login extends Component
                 <div className="signup-content">
                     <div className="signup-form">
                         <h2 className="form-title">SignIn</h2>
-                         <form className="register-form" id="register-form" action="/post" method="POST">
+                         <form className="register-form" id="register-form" action="/profile" method="GET">
                              
 
                               <div className="form-group">
 
                                   <div className="com">
-                                 <label htmlFor="email">
-                                     <i class="zmdi zmdi-email material-icons-name"></i>
+                                 <label htmlFor="name">
+                                     <i class="zmdi zmdi-account material-icons-name"></i>
                                 </label>
                                 </div>
 
                                 <div className="com">
-                                 <input type="text" name="email" id="email" autoComplete="off"
-                                 placeholder="Your Email"></input>
+                                 <input type="text" name="name" id="name" autoComplete="off"
+
+                                 
+
+                                 placeholder="Enter Your User_id"></input>
                                  </div>
 
                                 </div>
@@ -46,6 +48,7 @@ class Login extends Component
 
                                 <div className="com">
                                  <input type="password" name="password" id="password" autoComplete="off"
+                                 
                                  placeholder="Your Password"></input>
                                  </div>
                                  </div>
@@ -69,7 +72,7 @@ class Login extends Component
  <Footer/>
   </>
       )
-    }
+    
     
 }
 

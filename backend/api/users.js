@@ -8,7 +8,7 @@ const authUser = asyncHandler(async(req,res) => {
     if (user && (await user.matchPassword(password))) {
         res.json({
           _id: user._id,
-          username: user.username,
+          name: user.name,
           profile_img: user.profile_img,
         })
       } else {
@@ -18,16 +18,21 @@ const authUser = asyncHandler(async(req,res) => {
 })
 
 const registerUser = asyncHandler(async (req, res) => {
-    const { username, email, password } = req.body
+    const { name, email, password } = req.body
+    console.log(req.body)
+    console.log(name)
+    console.log(email)
+    console.log(password)
+    
     const userExists = await User.findOne({ email })
   
     if (userExists) {
-      res.status(400)
+      res.sendStatus(400)
       throw new Error('User already exists')
     }
   
     const user = await User.create({
-      username,
+      name,
       email,
       password,
     })
@@ -35,7 +40,7 @@ const registerUser = asyncHandler(async (req, res) => {
     if (user) {
       res.status(201).json({
         _id: user._id,
-        username: user.username,
+        name: user.name,
         email: user.email,
       })
     } else {
@@ -51,7 +56,7 @@ const registerUser = asyncHandler(async (req, res) => {
     if (user) {
       res.json({
         _id: user._id,
-        username: user.username,
+        name: user.name,
         email: user.email,
         profile_img: user.profile_img
       })
@@ -65,7 +70,7 @@ const registerUser = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user.id)
   
     if (user) {
-      user.username = req.body.username || user.username
+      user.name = req.body.name || user.name
       user.email = req.body.email || user.email
       if (req.body.password) {
         user.password = req.body.password
@@ -75,7 +80,7 @@ const registerUser = asyncHandler(async (req, res) => {
   
       res.json({
         id: updatedUser.id,
-        username: updatedUser.username,
+        name: updatedUser.name,
         email: updatedUser.email,
       })
     } else {
