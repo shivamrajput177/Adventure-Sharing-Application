@@ -3,12 +3,16 @@ const User = require('../models/userModel')
 
 const authUser = asyncHandler(async(req,res) => {
     const {email,password} = req.body
+    console.log(req.body.email)
+    console.log(req.body.password)
     const user  = await User.findOne({email})
 
     if (user && (await user.matchPassword(password))) {
         res.json({
+           
           _id: user._id,
-          name: user.name,
+          email: email,
+          username: user.username,
           profile_img: user.profile_img,
         })
       } else {
@@ -18,11 +22,9 @@ const authUser = asyncHandler(async(req,res) => {
 })
 
 const registerUser = asyncHandler(async (req, res) => {
-    const { name, email, password } = req.body
+    const { username, email, password } = req.body
     console.log(req.body)
-    console.log(name)
-    console.log(email)
-    console.log(password)
+    
     
     const userExists = await User.findOne({ email })
   
@@ -32,7 +34,7 @@ const registerUser = asyncHandler(async (req, res) => {
     }
   
     const user = await User.create({
-      name,
+      username,
       email,
       password,
     })
@@ -40,7 +42,7 @@ const registerUser = asyncHandler(async (req, res) => {
     if (user) {
       res.status(201).json({
         _id: user._id,
-        name: user.name,
+        username: user.username,
         email: user.email,
       })
     } else {
@@ -56,7 +58,7 @@ const registerUser = asyncHandler(async (req, res) => {
     if (user) {
       res.json({
         _id: user._id,
-        name: user.name,
+        username: user.username,
         email: user.email,
         profile_img: user.profile_img
       })
@@ -70,7 +72,7 @@ const registerUser = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user.id)
   
     if (user) {
-      user.name = req.body.name || user.name
+      user.username = req.body.username || user.username
       user.email = req.body.email || user.email
       if (req.body.password) {
         user.password = req.body.password
@@ -80,7 +82,7 @@ const registerUser = asyncHandler(async (req, res) => {
   
       res.json({
         id: updatedUser.id,
-        name: updatedUser.name,
+        username: updatedUser.username,
         email: updatedUser.email,
       })
     } else {

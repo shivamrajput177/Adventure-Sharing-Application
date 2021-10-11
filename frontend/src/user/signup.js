@@ -10,7 +10,7 @@ class  Signup extends Component
 
 
 state= {
-    name: "",
+    username: "",
     email: "",
     phone: "",
     password: "",
@@ -65,18 +65,18 @@ render(){
                              <div className="form-group">
 
                                  <div className="com">
-                                 <label htmlFor="name">
+                                 <label htmlFor="username">
                                      <i class="zmdi zmdi-account material-icons-name"></i>
                                 </label>
                                 </div>
 
                                 <div className="com">
-                                 <input type="text" name="name" id="name" autoComplete="off"
+                                 <input type="text" name="username" id="username" autoComplete="off"
                                  
                                  
                                  onChange={(event)=>{
                                      this.setState({
-                                       name: event.target.value
+                                       username: event.target.value
                                      })
                                  }}
                                  placeholder="Your UserName"></input>

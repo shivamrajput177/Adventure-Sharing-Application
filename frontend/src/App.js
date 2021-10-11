@@ -9,15 +9,13 @@ import "./Map/css/Map.css"
     <>
 
   <div className="App">  
-    
     <Routing/>
-      
    </div>
    </>
+)
+}
+}
 
-  )
-  }
-  }
 
 
    

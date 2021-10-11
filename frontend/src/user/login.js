@@ -1,14 +1,21 @@
-import axios from 'axios'
+// import axios from 'axios'
 
 import Headers from  "../components/header"
 import Footer from   "../components/footer"
 import   "./../Css/signup.css"
+import { Component } from 'react';
 
 
-const Login=()=>
+class Login extends Component
 {
- 
+  
+    state= {
+        email: "",
+        password: ""
     
+    }
+
+ render(){   
   return(
    <>
    <Headers/>
@@ -17,23 +24,29 @@ const Login=()=>
                 <div className="signup-content">
                     <div className="signup-form">
                         <h2 className="form-title">SignIn</h2>
-                         <form className="register-form" id="register-form" action="/profile" method="GET">
+                         <form className="register-form" id="register-form" action="http://localhost:5000/api/user/login" method="POST">
                              
 
                               <div className="form-group">
 
                                   <div className="com">
-                                 <label htmlFor="name">
+                                 <label htmlFor="email">
                                      <i class="zmdi zmdi-account material-icons-name"></i>
                                 </label>
                                 </div>
 
                                 <div className="com">
-                                 <input type="text" name="name" id="name" autoComplete="off"
-
+                                 <input type="text" name="email" id="email" autoComplete="off"
+                                 
+                                 onChange={(event)=>
+                                {
+                                    this.setState({
+                                        email: event.target.value
+                                    })
+                                }}
                                  
 
-                                 placeholder="Enter Your User_id"></input>
+                                 placeholder="Enter Your Email"></input>
                                  </div>
 
                                 </div>
@@ -48,7 +61,12 @@ const Login=()=>
 
                                 <div className="com">
                                  <input type="password" name="password" id="password" autoComplete="off"
-                                 
+                                  onChange={(event)=>
+                                    {
+                                        this.setState({
+                                            password: event.target.value
+                                        })
+                                    }}
                                  placeholder="Your Password"></input>
                                  </div>
                                  </div>
@@ -74,6 +92,7 @@ const Login=()=>
       )
     
     
+}
 }
 
 export default Login;
